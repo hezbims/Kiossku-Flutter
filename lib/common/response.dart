@@ -9,8 +9,8 @@ class ApiResponseSuccess<T> implements ApiResponse{
 }
 
 class ApiResponseFailed implements ApiResponse{
-  String? errorMessage;
-  String? errorCode;
+  final String? errorMessage;
+  final int? errorCode;
 
   ApiResponseFailed({
     this.errorMessage,
@@ -18,4 +18,6 @@ class ApiResponseFailed implements ApiResponse{
   });
 }
 
-class ApiResponseLoading implements ApiResponse{}
+class ApiResponseLoading implements ApiResponse{
+
+}

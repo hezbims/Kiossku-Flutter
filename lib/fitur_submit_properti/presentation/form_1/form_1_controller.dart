@@ -50,26 +50,6 @@ class Form1Controller extends GetxController{
         _waktuPembayaran = event.newValue;
       }
     }
-    else if (event is ChangeProvinsi){
-      if (event.newValue != null){
-        _provinsi = event.newValue;
-      }
-    }
-    else if (event is ChangeKabupaten){
-      if (event.newValue != null){
-        _kabupaten = event.newValue;
-      }
-    }
-    else if (event is ChangeKelurahan){
-      if (event.newValue != null){
-        _kelurahan = event.newValue;
-      }
-    }
-    else if (event is ChangeKecamatan){
-      if (event.newValue != null){
-        _kelurahan = event.newValue;
-      }
-    }
   }
 }
 
@@ -88,24 +68,4 @@ class ChangeTipeProperti extends Form1Event{
 class ChangeWaktuPembayaran extends Form1Event{
   WaktuPembayaran? newValue;
   ChangeWaktuPembayaran({required this.newValue});
-}
-
-class ChangeProvinsi extends Form1Event{
-  String? newValue;
-  ChangeProvinsi({required this.newValue});
-}
-
-class ChangeKabupaten extends Form1Event{
-  String? newValue;
-  ChangeKabupaten({required this.newValue});
-}
-
-class ChangeKecamatan extends Form1Event{
-  String? newValue;
-  ChangeKecamatan({required this.newValue});
-}
-
-class ChangeKelurahan extends Form1Event{
-  String? newValue;
-  ChangeKelurahan({required this.newValue});
 }
