@@ -6,16 +6,19 @@ class SubmitPropertiDropdown<T> extends StatelessWidget{
   final String label;
   final void Function(T?) onChanged;
   final List<T> items;
+  final T? selectedItem;
   const SubmitPropertiDropdown({
     super.key,
     required this.label,
     required this.onChanged,
-    required this.items
+    required this.items,
+    required this.selectedItem,
   });
 
   @override
   Widget build(BuildContext context) {
     return DropdownButtonFormField<T>(
+        value: selectedItem,
         items: items.map((e) =>
             DropdownMenuItem(
                 value: e,

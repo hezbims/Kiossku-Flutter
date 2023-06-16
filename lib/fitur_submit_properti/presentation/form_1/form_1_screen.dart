@@ -3,16 +3,14 @@ import 'package:get/get.dart';
 import 'package:kiossku_flutter/fitur_submit_properti/constant/enum/sewa_jual_enum.dart';
 import 'package:kiossku_flutter/fitur_submit_properti/constant/enum/tipe_properti_enum.dart';
 import 'package:kiossku_flutter/fitur_submit_properti/constant/enum/waktu_pembayaran_enum.dart';
-import 'package:kiossku_flutter/fitur_submit_properti/presentation/form_1/daerah_controller.dart';
 import 'package:kiossku_flutter/fitur_submit_properti/presentation/form_1/form_1_controller.dart';
 import 'package:kiossku_flutter/fitur_submit_properti/presentation/form_1/ui_component/daerah_dropdown.dart';
 import 'package:kiossku_flutter/fitur_submit_properti/presentation/form_1/ui_component/submit_properti_dropdown.dart';
 import 'package:kiossku_flutter/fitur_submit_properti/presentation/form_1/ui_component/submit_properti_text_field.dart';
 import 'package:kiossku_flutter/fitur_submit_properti/presentation/sewa_jual/sewa_jual_controller.dart';
+import 'package:kiossku_flutter/fitur_submit_properti/presentation/ui_component/back_next_button.dart';
 
 class Form1Screen extends StatelessWidget{
-  final Form1Controller form1Controller = Get.find();
-  final DaerahController daerahController = Get.find();
   final isSewa = Get.find<SewaJualController>().sewaJual ==
                   SewaJual.sewa;
 
@@ -30,18 +28,19 @@ class Form1Screen extends StatelessWidget{
             child: Column(
               children: [
                 Expanded(
-                    child: Obx(
-                      () => ListView(
+                    child: GetBuilder<Form1Controller>(
+                      builder : (controller) => ListView(
                         children: [
                           SubmitPropertiFormField(
-                            controller : form1Controller.judulC,
+                            controller : controller.judulC,
                             label: "Judul promosi",
                           ),
 
                           SubmitPropertiDropdown<TipeProperti>(
+                              selectedItem: controller.tipeProperti,
                               label: "Tipe properti",
                               onChanged: (newValue){
-                                form1Controller.onEvent(
+                                controller.onEvent(
                                     ChangeTipeProperti(newValue: newValue)
                                 );
                               },
@@ -50,15 +49,16 @@ class Form1Screen extends StatelessWidget{
 
 
                           SubmitPropertiFormField(
-                              controller: form1Controller.hargaC,
+                              controller: controller.hargaC,
                               label: "Harga"
                           ),
 
                           if (isSewa)
                             SubmitPropertiDropdown<WaktuPembayaran>(
+                                selectedItem: controller.waktuPembayaran,
                                 label: "Waktu pembayaran",
                                 onChanged: (newValue){
-                                  form1Controller.onEvent(
+                                  controller.onEvent(
                                       ChangeWaktuPembayaran(newValue: newValue)
                                   );
                                 },
@@ -66,61 +66,66 @@ class Form1Screen extends StatelessWidget{
                             ),
 
                           SubmitPropertiFormField(
-                              controller: form1Controller.alamatC,
+                              controller: controller.alamatC,
                               label: "Alamat jalan"
                           ),
 
                           DaerahDropdown(
                             label: "Provinsi",
-                            isVisible: daerahController.isProvinsiFormVisible,
+                            isVisible: controller.isProvinsiFormVisible,
                             onChanged: (newValue){
-                              daerahController.onEvent(
+                              controller.onEvent(
                                   ChangeProvinsi(newValue: newValue)
                               );
                             },
-                            onReload: () => daerahController.onEvent(ReloadProvinsi()),
-                            response: daerahController.daerahState.value.listProvinsi,
-                            currentValue: daerahController.daerahState.value.provinsi,
+                            onReload: () => controller.onEvent(ReloadProvinsi()),
+                            response: controller.listProvinsi,
+                            currentValue: controller.provinsi,
                           ),
 
                           DaerahDropdown(
                             label: "Kabupaten",
-                            isVisible: daerahController.isKabupatenFormVisible,
+                            isVisible: controller.isKabupatenFormVisible,
                             onChanged: (newValue){
-                              daerahController.onEvent(
+                              controller.onEvent(
                                   ChangeKabupaten(newValue: newValue)
                               );
                             },
-                            onReload: () => daerahController.onEvent(ReloadKabupaten()),
-                            response: daerahController.daerahState.value.listKabupaten,
-                            currentValue: daerahController.daerahState.value.kabupaten,
+                            onReload: () => controller.onEvent(ReloadKabupaten()),
+                            response: controller.listKabupaten,
+                            currentValue: controller.kabupaten,
                           ),
 
                           DaerahDropdown(
                             label: "Kecamatan",
-                            isVisible: daerahController.isKecamatanFormVisible,
+                            isVisible: controller.isKecamatanFormVisible,
                             onChanged: (newValue){
-                              daerahController.onEvent(
+                              controller.onEvent(
                                   ChangeKecamatan(newValue: newValue)
                               );
                             },
-                            onReload: () => daerahController.onEvent(ReloadKecamatan()),
-                            response: daerahController.daerahState.value.listKecamatan,
-                            currentValue: daerahController.daerahState.value.kecamatan,
+                            onReload: () => controller.onEvent(ReloadKecamatan()),
+                            response: controller.listKecamatan,
+                            currentValue: controller.kecamatan,
                           ),
 
                           DaerahDropdown(
                             label: "Kelurahan",
-                            isVisible: daerahController.isKelurahanFormVisible,
+                            isVisible: controller.isKelurahanFormVisible,
                             onChanged: (newValue){
-                              daerahController.onEvent(
+                              controller.onEvent(
                                   ChangeKelurahan(newValue: newValue)
                               );
                             },
-                            onReload: () => daerahController.onEvent(ReloadKelurahan()),
-                            response: daerahController.daerahState.value.listKelurahan,
-                            currentValue: daerahController.daerahState.value.kelurahan,
+                            onReload: () => controller.onEvent(ReloadKelurahan()),
+                            response: controller.listKelurahan,
+                            currentValue: controller.kelurahan,
                           ),
+
+                          BackNextButton(
+                              clickNext: controller.clickNext,
+                              clickBack: controller.clickBack
+                          )
                         ],
                       ),
                     )

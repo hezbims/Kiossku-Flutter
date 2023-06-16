@@ -25,7 +25,6 @@ class DaerahDropdown extends StatelessWidget{
   @override
   Widget build(BuildContext context) {
     if (isVisible) {
-      print("$label Visible");
       return FutureBuilder(
           future: response,
           builder: (context, snapshot) {
@@ -34,8 +33,6 @@ class DaerahDropdown extends StatelessWidget{
 
               if (data is ApiResponseSuccess<List<DaerahDto>>) {
                 final items = data.data!;
-                print("$label Punya data sukses ${items.length}");
-                print("$label current Value : ${currentValue?.name}");
                 return DropdownButtonFormField(
                   value: currentValue,
                   items: items.map((e) =>
@@ -79,7 +76,8 @@ class DaerahDropdown extends StatelessWidget{
           }
       );
     }
-    else
-      return SizedBox.shrink();
+    else {
+      return const SizedBox.shrink();
+    }
   }
 }

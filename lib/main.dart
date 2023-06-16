@@ -5,10 +5,13 @@ import 'package:kiossku_flutter/fitur_login/di/login_bindings.dart';
 import 'package:kiossku_flutter/fitur_login/presentation/login_page.dart';
 import 'package:kiossku_flutter/fitur_submit_properti/di/submit_properti_bindings.dart';
 import 'package:kiossku_flutter/fitur_submit_properti/presentation/form_1/form_1_screen.dart';
+import 'package:kiossku_flutter/fitur_submit_properti/presentation/form_2/form_2_screen.dart';
 import 'package:kiossku_flutter/fitur_submit_properti/presentation/sewa_jual/sewa_jual_screen.dart';
 import 'package:kiossku_flutter/navigation/route.dart';
+import 'package:kiossku_flutter/theme/kiossku_theme.dart';
 
 import 'fitur_home/presentation/home_page.dart';
+import 'fitur_submit_properti/presentation/form_3/form_3_screen.dart';
 
 void main() {
   runApp(const MyApp());
@@ -23,7 +26,7 @@ class MyApp extends StatelessWidget {
     return GetMaterialApp(
       title: 'Flutter Demo',
       theme: ThemeData(
-        primarySwatch: Colors.blue,
+        primaryColor: KiosskuColors.primary,
       ),
       initialRoute: NavRoute.submitPropertiRoute,
       getPages: [
@@ -45,6 +48,14 @@ class MyApp extends StatelessWidget {
         GetPage(
             name: NavRoute.form1SubmitPropertiRoute,
             page: () => Form1Screen()
+        ),
+        GetPage(
+            name: NavRoute.form2SubmitPropertiRoute,
+            page: () => const Form2Screen()
+        ),
+        GetPage(
+          name : NavRoute.form3SubmitPropertiRoute,
+          page: () => Form3Screen()
         )
       ],
     );
