@@ -1,5 +1,5 @@
 import 'package:get/get.dart';
-import 'package:kiossku_flutter/common/constant/url/api_url.dart';
+import 'package:kiossku_flutter/common/constant/url/common_api_url.dart';
 
 class LoginApiClient extends GetConnect{
   static final LoginApiClient _singleton = LoginApiClient._internal();
@@ -12,7 +12,7 @@ class LoginApiClient extends GetConnect{
     required String email,
     required String password
   }){
-      return post(ApiUrl.loginURL , {
+      return post(CommonApiUrl.loginURL , {
         'email' : email,
         'password' : password
       });

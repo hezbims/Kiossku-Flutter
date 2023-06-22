@@ -1,34 +1,33 @@
 import 'package:flutter/cupertino.dart';
 import 'package:get/get.dart';
-import 'package:image_picker/image_picker.dart';
-import 'package:kiossku_flutter/fitur_home/data/home_debug_repository.dart';
+import 'package:kiossku_flutter/fitur_home/domain/model/filter_data.dart';
+import 'package:kiossku_flutter/fitur_home/domain/repository/ihome_repository.dart';
+
+import '../../common/domain/use_case/interface/i_load_image_use_case.dart';
+import '../../common/response.dart';
 
 class HomeController extends GetxController{
-  var isLoading = false.obs;
-  var currentImages = <XFile>[].obs;
-
-  final HomeDebugRepository _repository;
-
+  final IHomeRepository _repository;
+  final ILoadImageUseCase _loadImageUseCase;
   HomeController({
-    required HomeDebugRepository repository
-  }) : _repository = repository;
+    required IHomeRepository repository,
+    required ILoadImageUseCase loadImageUseCase,
+  }) : _repository = repository , _loadImageUseCase = loadImageUseCase;
 
-  void uploadImages() async{
-    isLoading.value = true;
-    debugPrint("ZZZZZZ Mulai loading");
-    _repository.debugUploadImages(currentImages).then((e){
-      isLoading.value = false;
-      debugPrint("ZZZZZ ${e.toString()}");
-    });
+  late Future<ApiResponse> apiResponse;
+  void loadData(){
+    apiResponse = _repository.getPreviewData(FilterData());
   }
 
-  void pickImages() async{
-    try{
-      final nextImages = await ImagePicker().pickMultiImage();
-      currentImages.value = nextImages;
-      debugPrint("QQQQQQQ ${nextImages.length}");
-    } catch (e){
-      debugPrint(e.toString());
-    }
+  String getImageUrl(String imageName) {
+    final ret = _loadImageUseCase.getImageUrl(imageName);
+    debugPrint(ret);
+    return ret;
+  }
+
+  @override
+  void onInit() {
+    super.onInit();
+    loadData();
   }
 }

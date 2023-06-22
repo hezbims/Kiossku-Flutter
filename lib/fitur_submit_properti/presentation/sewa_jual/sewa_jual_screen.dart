@@ -1,10 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:kiossku_flutter/common/constant/url/assets_url.dart';
+import 'package:kiossku_flutter/common/presentation/kiossku_bottom_nav_bar.dart';
 import 'package:kiossku_flutter/common/presentation/kiossku_header.dart';
 import 'package:kiossku_flutter/fitur_submit_properti/presentation/sewa_jual/sewa_jual_controller.dart';
 import 'package:kiossku_flutter/fitur_submit_properti/presentation/sewa_jual/ui_component/sewa_jual_card.dart';
 
+import '../../../navigation/bottom_nav_bar_index.dart';
 import '../../constant/enum/sewa_jual_enum.dart';
 
 class SewaJualScreen extends StatelessWidget{
@@ -17,6 +19,9 @@ class SewaJualScreen extends StatelessWidget{
   Widget build(BuildContext context) {
     return SafeArea(
         child: Scaffold(
+          bottomNavigationBar: KiosskuBottomNavBar(
+              currentSelectedIndex: BottomNavBarIndex.submitPropertiIndex
+          ),
           body: Padding(
             padding: const EdgeInsets.symmetric(
                 horizontal: 24,

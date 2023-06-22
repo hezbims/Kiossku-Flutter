@@ -57,7 +57,7 @@ class DaerahRepository implements IDaerahRepository{
     })
         .catchError((error) {
       return ApiResponseFailed(
-          errorMessage : error.toString()
+          errorMessage : "Gagal tersambung ke server\ntap untuk mereload"
       );
     });
   }

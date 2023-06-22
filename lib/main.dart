@@ -1,16 +1,19 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:kiossku_flutter/common/di/initial_bindings.dart';
 import 'package:kiossku_flutter/fitur_home/di/home_bindings.dart';
 import 'package:kiossku_flutter/fitur_login/di/login_bindings.dart';
 import 'package:kiossku_flutter/fitur_login/presentation/login_page.dart';
-import 'package:kiossku_flutter/fitur_submit_properti/di/submit_properti_bindings.dart';
+import 'package:kiossku_flutter/fitur_submit_properti/di/finish_submit_properti_bindings.dart';
+import 'package:kiossku_flutter/fitur_submit_properti/di/init_submit_properti_bindings.dart';
+import 'package:kiossku_flutter/fitur_submit_properti/presentation/finish_submit/finish_submit_screen.dart';
 import 'package:kiossku_flutter/fitur_submit_properti/presentation/form_1/form_1_screen.dart';
 import 'package:kiossku_flutter/fitur_submit_properti/presentation/form_2/form_2_screen.dart';
 import 'package:kiossku_flutter/fitur_submit_properti/presentation/sewa_jual/sewa_jual_screen.dart';
 import 'package:kiossku_flutter/navigation/route.dart';
 import 'package:kiossku_flutter/theme/kiossku_theme.dart';
 
-import 'fitur_home/presentation/home_page.dart';
+import 'fitur_home/presentation/home_screen.dart';
 import 'fitur_submit_properti/presentation/form_3/form_3_screen.dart';
 
 void main() {
@@ -28,11 +31,12 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primaryColor: KiosskuColors.primary,
       ),
-      initialRoute: NavRoute.submitPropertiRoute,
+      initialBinding: InitialBindings(),
+      initialRoute: NavRoute.homeRoute,
       getPages: [
         GetPage(
             name: NavRoute.homeRoute ,
-            page: () => HomePage(),
+            page: () => HomeScreen(),
             binding : HomeBindings()
         ),
         GetPage(
@@ -55,7 +59,12 @@ class MyApp extends StatelessWidget {
         ),
         GetPage(
           name : NavRoute.form3SubmitPropertiRoute,
-          page: () => Form3Screen()
+          page: () => const Form3Screen()
+        ),
+        GetPage(
+            name: NavRoute.finishSubmitRoute,
+            page: () => const FinishSubmitScreen(),
+            binding: FinishSubmitPropertiBindigs()
         )
       ],
     );
