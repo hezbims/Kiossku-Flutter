@@ -6,6 +6,8 @@ abstract class NavRoute{
   static const form2SubmitPropertiRoute = "/form2SubmitPropertiRoute";
   static const form3SubmitPropertiRoute = "/form3SubmitPropertiRoute";
   static const finishSubmitRoute = "/finishSubmitRoute";
-
+  static const detailPropertiBaseRoute = "/detailPropertiRoute/:id";
+  static String getDetailPropertiRoute(int idProperti) =>
+      "/detailPropertiRoute/$idProperti";
 
 }

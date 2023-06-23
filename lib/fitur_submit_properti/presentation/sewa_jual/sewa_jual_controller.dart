@@ -1,5 +1,5 @@
 import 'package:get/get.dart';
-import 'package:kiossku_flutter/navigation/route.dart';
+import 'package:kiossku_flutter/navigation/nav_route.dart';
 
 import '../../constant/enum/sewa_jual_enum.dart';
 

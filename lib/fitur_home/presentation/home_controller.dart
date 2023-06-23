@@ -2,6 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:get/get.dart';
 import 'package:kiossku_flutter/fitur_home/domain/model/filter_data.dart';
 import 'package:kiossku_flutter/fitur_home/domain/repository/ihome_repository.dart';
+import 'package:kiossku_flutter/navigation/nav_route.dart';
 
 import '../../common/domain/use_case/interface/i_load_image_use_case.dart';
 import '../../common/response.dart';
@@ -17,6 +18,7 @@ class HomeController extends GetxController{
   late Future<ApiResponse> apiResponse;
   void loadData(){
     apiResponse = _repository.getPreviewData(FilterData());
+    update();
   }
 
   String getImageUrl(String imageName) {
@@ -29,5 +31,9 @@ class HomeController extends GetxController{
   void onInit() {
     super.onInit();
     loadData();
+  }
+
+  void goToDetailProperti(int idProperti){
+    Get.toNamed(NavRoute.getDetailPropertiRoute(idProperti));
   }
 }

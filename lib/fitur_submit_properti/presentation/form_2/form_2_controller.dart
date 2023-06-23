@@ -1,6 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:get/get.dart';
-import 'package:kiossku_flutter/navigation/route.dart';
+import 'package:kiossku_flutter/navigation/nav_route.dart';
 
 class Form2Controller extends GetxController{
   final luasLahanC = TextEditingController();

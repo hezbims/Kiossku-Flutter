@@ -1,7 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:get/get.dart';
 import 'package:kiossku_flutter/fitur_submit_properti/constant/enum/fix_nego_enum.dart';
-import 'package:kiossku_flutter/navigation/route.dart';
+import 'package:kiossku_flutter/navigation/nav_route.dart';
 
 import '../../../common/response.dart';
 import '../../constant/enum/tipe_properti_enum.dart';

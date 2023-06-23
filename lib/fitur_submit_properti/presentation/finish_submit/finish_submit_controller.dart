@@ -5,7 +5,7 @@ import 'package:kiossku_flutter/fitur_submit_properti/domain/repository/i_submit
 import 'package:kiossku_flutter/fitur_submit_properti/presentation/form_1/form_1_controller.dart';
 import 'package:kiossku_flutter/fitur_submit_properti/presentation/form_3/form_3_controller.dart';
 import 'package:kiossku_flutter/fitur_submit_properti/presentation/sewa_jual/sewa_jual_controller.dart';
-import 'package:kiossku_flutter/navigation/route.dart';
+import 'package:kiossku_flutter/navigation/nav_route.dart';
 
 import '../form_2/form_2_controller.dart';
 

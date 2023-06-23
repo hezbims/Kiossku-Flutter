@@ -8,9 +8,7 @@ import 'package:kiossku_flutter/fitur_home/presentation/ui_component/item_proper
 import 'package:kiossku_flutter/navigation/bottom_nav_bar_index.dart';
 
 class HomeScreen extends StatelessWidget {
-  HomeScreen({super.key});
-
-  final controller = Get.find<HomeController>();
+  const HomeScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -18,43 +16,50 @@ class HomeScreen extends StatelessWidget {
       bottomNavigationBar: KiosskuBottomNavBar(
           currentSelectedIndex: BottomNavBarIndex.homeIndex
       ),
-      body: FutureBuilder(
-        future: controller.apiResponse,
-        builder: (context , snapshot) {
-          if (snapshot.hasData) {
-            final data = snapshot.data!;
-            if (data is ApiResponseSuccess) {
-              debugPrint('HomeApiResponse success');
-              return MasonryGridView.count(
-                  crossAxisCount: 2, 
-                  itemBuilder: (context , index){
-                    return ItemProperti(propertiPreview: data.data[index]);
-                  },
-                  itemCount: data.data.length,
-              );
+      body: GetBuilder<HomeController>(
+        builder: (controller) {
+          return FutureBuilder(
+            future: controller.apiResponse,
+            builder: (context , snapshot) {
+              if (snapshot.hasData) {
+                final data = snapshot.data!;
+                if (data is ApiResponseSuccess) {
+                  debugPrint('HomeApiResponse success');
+                  return MasonryGridView.count(
+                      crossAxisCount: 2,
+                      itemBuilder: (context , index){
+                        return ItemProperti(propertiPreview: data.data[index]);
+                      },
+                      itemCount: data.data.length,
+                  );
+                }
+                else if (data is ApiResponseFailed){
+                  debugPrint('HomeApiResponse failed');
+                  return InkWell(
+                    onTap: controller.loadData,
+                    child: Center(
+                      child: Column(
+                        mainAxisSize: MainAxisSize.min,
+                        children: [
+                          const Icon(Icons.wifi_off),
+                          Text(
+                            data.errorMessage.toString(),
+                            textAlign: TextAlign.center,
+                          )
+                        ],
+                      ),
+                    ),
+                  );
+                }
+                else{ throw Exception("Unknown Error"); }
+              }
+              else {
+                return const Center(
+                  child: CircularProgressIndicator(),
+                );
+              }
             }
-            else if (data is ApiResponseFailed){
-              debugPrint('HomeApiResponse failed');
-              return Center(
-                child: Column(
-                  mainAxisSize: MainAxisSize.min,
-                  children: [
-                    const Icon(Icons.wifi_off),
-                    Text(
-                      data.errorMessage.toString(),
-                      textAlign: TextAlign.center,
-                    )
-                  ],
-                ),
-              );
-            }
-            else{ throw Exception("Unknown Error"); }
-          }
-          else {
-            return const Center(
-              child: CircularProgressIndicator(),
-            );
-          }
+          );
         }
       )
     );

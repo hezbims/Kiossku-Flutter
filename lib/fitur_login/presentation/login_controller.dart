@@ -3,7 +3,7 @@ import 'package:fluttertoast/fluttertoast.dart';
 import 'package:get/get.dart';
 import 'package:kiossku_flutter/common/response.dart';
 import 'package:kiossku_flutter/fitur_login/domain/repository/ilogin_repository.dart';
-import 'package:kiossku_flutter/navigation/route.dart';
+import 'package:kiossku_flutter/navigation/nav_route.dart';
 
 class LoginController extends GetxController{
   final ILoginRepository repository;
