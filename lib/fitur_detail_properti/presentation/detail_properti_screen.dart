@@ -1,7 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:kiossku_flutter/common/response.dart';
+import 'package:kiossku_flutter/fitur_detail_properti/domain/model/detail_properti.dart';
 import 'package:kiossku_flutter/fitur_detail_properti/presentation/detail_properti_controller.dart';
+import 'package:kiossku_flutter/fitur_detail_properti/presentation/ui_component/detail_properti_app_bar/detail_properti_app_bar.dart';
+import 'package:kiossku_flutter/fitur_detail_properti/presentation/ui_component/detail_properti_data/all_detail_properti_data.dart';
+import 'package:kiossku_flutter/fitur_detail_properti/presentation/ui_component/image_slider/image_slider.dart';
 
 class DetailPropertiScreen extends StatelessWidget{
   const DetailPropertiScreen({super.key});
@@ -18,27 +22,30 @@ class DetailPropertiScreen extends StatelessWidget{
                   if (snapshot.hasData) {
                     final data = snapshot.data!;
                     if (data is ApiResponseSuccess) {
-                      return Column(
+                      final DetailProperti detailProperti = data.data;
+                      return ListView(
                         children: [
-                          SizedBox(
-                            height: 241,
-                            child: ListView.separated(
-                              padding: const EdgeInsets.symmetric(horizontal: 24),
-                              scrollDirection: Axis.horizontal,
-                              itemBuilder: (context, index) {
-                                return Image.network(
-                                  controller.getImageUrl(data.data.images[index]),
-                                  height: 241,
-                                  width: 327,
-                                  fit: BoxFit.cover,
-                                  alignment: Alignment.center,
-                                );
-                              },
-                              itemCount: data.data.images.length,
-                              separatorBuilder: (context , index){
-                                return const SizedBox(width:24,);
-                              },
+                          const SizedBox(height: 4,),
+
+                          Padding(
+                            padding: const EdgeInsets.only(
+                              left : 24,
+                              right : 24,
                             ),
+                            child: DetailPropertiAppBar(sewaJual: detailProperti.sewaJual),
+                          ),
+
+                          const SizedBox(height: 20,),
+
+                          ImageSlider(images: detailProperti.images),
+
+                          const SizedBox(height: 24,),
+
+                          Padding(
+                            padding: const EdgeInsets.symmetric(
+                              horizontal: 24
+                            ),
+                            child: AllDetailPropertiData(detailProperti: detailProperti),
                           ),
                         ],
                       );
@@ -51,7 +58,10 @@ class DetailPropertiScreen extends StatelessWidget{
                             mainAxisSize: MainAxisSize.min,
                             children: [
                               const Icon(Icons.wifi_off),
-                              Text(data.errorMessage.toString()),
+                              Text(
+                                  data.errorMessage.toString(),
+                                  textAlign: TextAlign.center,
+                              ),
                             ],
                           ),
                         ),

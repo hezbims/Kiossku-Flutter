@@ -30,4 +30,11 @@ class DetailPropertiController extends GetxController{
   String getImageUrl(String imageName){
     return _loadImageUseCase.getImageUrl(imageName);
   }
+
+  void reloadImage(int id){
+    update([id]);
+  }
+
+  void onBackButtonPressed() =>
+      Get.back();
 }

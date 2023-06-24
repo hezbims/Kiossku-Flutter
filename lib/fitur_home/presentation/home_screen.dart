@@ -27,6 +27,7 @@ class HomeScreen extends StatelessWidget {
                   debugPrint('HomeApiResponse success');
                   return MasonryGridView.count(
                       crossAxisCount: 2,
+                      crossAxisSpacing: 16,
                       itemBuilder: (context , index){
                         return ItemProperti(propertiPreview: data.data[index]);
                       },
