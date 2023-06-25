@@ -3,6 +3,7 @@ import 'package:image_picker/image_picker.dart';
 class Properti {
   final String judulPromosi;
   final int harga;
+  final String tipeProperti;
   final String waktuPembayaran;
   final String fixNego;
   final String sewaJual;
@@ -22,6 +23,7 @@ class Properti {
   final List<XFile> images;
 
   Properti({
+    required this.tipeProperti,
     required this.judulPromosi,
     required this.harga,
     required this.waktuPembayaran,

@@ -28,7 +28,8 @@ class FinishSubmitController extends GetxController{
     super.onInit();
     apiResponse = _repository.submitProperti(
       SubmitPropertiDto(
-          judulPromosi: _form1C.judulC.text, 
+          judulPromosi: _form1C.judulC.text,
+          tipeProperti: _form1C.tipeProperti.toString(),
           harga: int.parse(_form1C.hargaC.text), 
           waktuPembayaran: _form1C.waktuPembayaran.toString(), 
           fixNego: _form1C.fixNego.toString(), 

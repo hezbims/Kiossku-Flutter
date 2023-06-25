@@ -7,6 +7,7 @@ import 'package:collection/collection.dart';
 class SubmitPropertiDto{
   final String judulPromosi;
   final int harga;
+  final String tipeProperti;
   final String waktuPembayaran;
   final String fixNego;
   final String sewaJual;
@@ -26,6 +27,7 @@ class SubmitPropertiDto{
   final List<XFile> images;
 
   SubmitPropertiDto({
+    required this.tipeProperti,
     required this.judulPromosi,
     required this.harga,
     required this.waktuPembayaran,
@@ -50,6 +52,7 @@ class SubmitPropertiDto{
   Map<String , dynamic> toMap(){
     final Map<String , dynamic> result = {
       "judulPromosi" : judulPromosi,
+      "tipeProperti" : tipeProperti,
       "harga" : harga,
       "waktuPembayaran" : waktuPembayaran,
       "fixNego" : fixNego,
