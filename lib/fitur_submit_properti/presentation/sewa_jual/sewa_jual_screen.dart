@@ -29,7 +29,7 @@ class SewaJualScreen extends StatelessWidget{
             ),
             child: Column(
               children: [
-                KiosskuHeader(),
+                const KiosskuHeader(),
 
                 const SizedBox(height: 16,),
 

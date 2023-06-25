@@ -12,6 +12,7 @@ class DaerahDropdown extends StatelessWidget{
   final void Function() onReload;
   final Future<ApiResponse> response;
   final DaerahDto? currentValue;
+  final String? errorMessage;
   const DaerahDropdown({
     super.key,
     required this.label,
@@ -19,7 +20,8 @@ class DaerahDropdown extends StatelessWidget{
     required this.onChanged,
     required this.onReload,
     required this.response,
-    required this.currentValue
+    required this.currentValue,
+    required this.errorMessage,
   });
 
   @override
@@ -44,7 +46,8 @@ class DaerahDropdown extends StatelessWidget{
                   onChanged: onChanged,
                   decoration: InputDecoration(
                       border: CustomDecorationProperty.formBorder,
-                      label: Text(label)
+                      label: Text(label),
+                      errorText: errorMessage
                   ),
                 );
               }

@@ -23,11 +23,15 @@ class Form2Screen extends StatelessWidget{
                       children: [
                         SubmitPropertiFormField(
                             controller: controller.luasLahanC,
-                            label: "Luas lahan"
+                            label: "Luas lahan",
+                            errorMessage: controller.luasLahanError,
+                            isIntField: true,
                         ),
                         SubmitPropertiFormField(
                             controller: controller.luasBangunanC,
-                            label: "Luas bangunan"
+                            label: "Luas bangunan",
+                            errorMessage: controller.luasBangunanError,
+                            isIntField: true,
                         ),
                         Row(
                           mainAxisSize: MainAxisSize.min,
@@ -35,32 +39,42 @@ class Form2Screen extends StatelessWidget{
                             Expanded(
                               child: SubmitPropertiFormField(
                                   controller: controller.panjangC,
-                                  label: "Panjang"
+                                  label: "Panjang",
+                                  errorMessage: controller.panjangError,
+                                  isIntField: true,
                               ),
                             ),
                             Expanded(
                               child: SubmitPropertiFormField(
                                   controller: controller.lebarC,
-                                  label: "Lebar"
+                                  label: "Lebar",
+                                  errorMessage: controller.lebarError,
+                                  isIntField: true,
                               ),
                             )
                           ],
                         ),
                         SubmitPropertiFormField(
                             controller: controller.jumlahLantaiC,
-                            label: "Jumlah lantai"
+                            label: "Jumlah lantai",
+                            errorMessage: controller.jumlahLantaiError,
+                            isIntField: true,
                         ),
                         SubmitPropertiFormField(
                             controller: controller.kapasitasListrikC,
-                            label: "Kapasitas listrik"
+                            label: "Kapasitas listrik",
+                            errorMessage: controller.kapasitasListrikError,
+                            isIntField: true,
                         ),
                         SubmitPropertiFormField(
                             controller: controller.fasilitasC,
-                            label: "Fasilitas"
+                            label: "Fasilitas (opsional)",
+                            errorMessage: null,
                         ),
                         SubmitPropertiFormField(
                             controller: controller.deskripsiC,
-                            label: "Deskripsi"
+                            label: "Deskripsi (opsional)",
+                            errorMessage: null,
                         ),
                         BackNextButton(
                             clickNext: controller.clickNext,

@@ -4,12 +4,14 @@ import 'package:kiossku_flutter/fitur_submit_properti/constant/custom_decoration
 class SubmitPropertiDropdown<T> extends StatelessWidget{
 
   final String label;
+  final String? errorMessage;
   final void Function(T?) onChanged;
   final List<T> items;
   final T? selectedItem;
   const SubmitPropertiDropdown({
     super.key,
     required this.label,
+    required this.errorMessage,
     required this.onChanged,
     required this.items,
     required this.selectedItem,
@@ -28,7 +30,8 @@ class SubmitPropertiDropdown<T> extends StatelessWidget{
         onChanged: onChanged,
         decoration: InputDecoration(
           border: CustomDecorationProperty.formBorder,
-          label: Text(label)
+          label: Text(label),
+          errorText: errorMessage,
         ),
     );
   }

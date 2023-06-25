@@ -14,14 +14,14 @@ class TambahGambar extends StatelessWidget{
         return InkWell(
           onTap: controller.addNewImages,
           child: DottedBorder(
-              child: Center(
+              child: const Center(
                 child: SizedBox(
                   height: 241,
                   child: Column(
                     mainAxisAlignment: MainAxisAlignment.center,
                     mainAxisSize: MainAxisSize.max,
                     crossAxisAlignment: CrossAxisAlignment.center,
-                    children: const [
+                    children: [
                       Text("Tambah Gambar"),
                       Icon(Icons.add)
                     ],

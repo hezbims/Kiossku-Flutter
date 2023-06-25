@@ -38,12 +38,12 @@ class MyApp extends StatelessWidget {
       getPages: [
         GetPage(
             name: NavRoute.homeRoute ,
-            page: () => HomeScreen(),
+            page: () => const HomeScreen(),
             binding : HomeBindings()
         ),
         GetPage(
             name: NavRoute.detailPropertiBaseRoute,
-            page: () => DetailPropertiScreen(),
+            page: () => const DetailPropertiScreen(),
             binding: DetailPropertiBindings(),
         ),
         GetPage(
@@ -58,7 +58,7 @@ class MyApp extends StatelessWidget {
         ),
         GetPage(
             name: NavRoute.form1SubmitPropertiRoute,
-            page: () => Form1Screen()
+            page: () => const Form1Screen()
         ),
         GetPage(
             name: NavRoute.form2SubmitPropertiRoute,

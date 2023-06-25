@@ -61,18 +61,18 @@ class AllDetailPropertiData extends StatelessWidget{
           ],
         ),
 
-        SizedBox(height: 24,),
+        const SizedBox(height: 24,),
 
         KartuLuas(detailProperti: detailProperti),
 
-        SizedBox(height: 24,),
+        const SizedBox(height: 24,),
 
         PropertiDataWithIcon(
             icon: Icons.location_pin,
             data: detailProperti.alamat
         ),
 
-        SizedBox(height: 16,),
+        const SizedBox(height: 16,),
 
         PropertiDataWithIcon(
             icon: Icons.description_outlined,

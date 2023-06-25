@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:kiossku_flutter/theme/kiossku_theme.dart';
 
 class BackNextButton extends StatelessWidget{
   final void Function() _onNext;
@@ -25,13 +26,47 @@ class BackNextButton extends StatelessWidget{
         Expanded(
           child: OutlinedButton(
               onPressed: _onBack,
-              child: Text(_backText)
+            style: ButtonStyle(
+              padding: const MaterialStatePropertyAll(
+                EdgeInsets.symmetric(vertical: 16)
+              ),
+              foregroundColor: const MaterialStatePropertyAll(Color(0xFF605B57)),
+              shape: MaterialStatePropertyAll(
+                RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(12),
+                  side: const BorderSide(
+                    width: 0.5,
+                    color: Color(0xFF605B57),
+                  ),
+                )
+              )
+            ),
+              child: Text(_backText),
           ),
         ),
+
+        const SizedBox(width: 16,),
+
         Expanded(
           child: FilledButton(
               onPressed: _onNext,
-              child: Text(_nextText)
+              style: ButtonStyle(
+                padding: const MaterialStatePropertyAll(
+                  EdgeInsets.symmetric(vertical: 16),
+                ),
+                backgroundColor: const MaterialStatePropertyAll(KiosskuColors.primary),
+                shape: MaterialStatePropertyAll(
+                  RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(12)
+                  )
+                )
+              ),
+              child: Row(
+                mainAxisSize: MainAxisSize.min,
+                children: [
+                  Text(_nextText),
+                ],
+              ),
           ),
         )
       ],

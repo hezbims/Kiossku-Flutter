@@ -1,19 +1,31 @@
 import 'package:flutter/cupertino.dart';
 import 'package:get/get.dart';
+import 'package:kiossku_flutter/common/response.dart';
 import 'package:kiossku_flutter/fitur_submit_properti/constant/enum/fix_nego_enum.dart';
+import 'package:kiossku_flutter/fitur_submit_properti/constant/enum/sewa_jual_enum.dart';
+import 'package:kiossku_flutter/fitur_submit_properti/constant/enum/tipe_properti_enum.dart';
+import 'package:kiossku_flutter/fitur_submit_properti/constant/enum/waktu_pembayaran_enum.dart';
+import 'package:kiossku_flutter/fitur_submit_properti/data/dto/daerah_dto.dart';
+import 'package:kiossku_flutter/fitur_submit_properti/domain/repository/i_daerah_repository.dart';
+import 'package:kiossku_flutter/fitur_submit_properti/domain/use_case/impl/empty_validation_use_case.dart';
+import 'package:kiossku_flutter/fitur_submit_properti/domain/use_case/impl/int_validation_use_case.dart';
+import 'package:kiossku_flutter/fitur_submit_properti/domain/use_case/impl/null_validation_use_case.dart';
+import 'package:kiossku_flutter/fitur_submit_properti/presentation/sewa_jual/sewa_jual_controller.dart';
 import 'package:kiossku_flutter/navigation/nav_route.dart';
 
-import '../../../common/response.dart';
-import '../../constant/enum/tipe_properti_enum.dart';
-import '../../constant/enum/waktu_pembayaran_enum.dart';
-import '../../data/dto/daerah_dto.dart';
-import '../../domain/repository/i_daerah_repository.dart';
 
 class Form1Controller extends GetxController{
 
   final IDaerahRepository daerahRepository;
+  final EmptyValidationUseCase emptyValidator;
+  final NullValidationUseCase nullValidator;
+  final IntValidationUseCase intValidator;
+
   Form1Controller({
-      required this.daerahRepository
+      required this.daerahRepository,
+      required this.emptyValidator,
+      required this.nullValidator,
+      required this.intValidator,
   }) : _listProvinsi = daerahRepository.getProvinsi();
 
   final judulC = TextEditingController();
@@ -131,8 +143,61 @@ class Form1Controller extends GetxController{
   bool get isKecamatanFormVisible => _kabupaten != null;
   bool get isKelurahanFormVisible => _kecamatan != null;
 
-  void clickNext() => Get.toNamed(NavRoute.form2SubmitPropertiRoute);
+  bool get isSewa =>
+    Get.find<SewaJualController>().sewaJual == SewaJual.sewa;
+
+  void clickNext() {
+    judulError = emptyValidator.validate(judulC.text , errorMessage: "Judul tidak boleh kosong");
+    tipePropertiError = nullValidator.validate(_tipeProperti , errorMessage: "Tipe properti tidak boleh kosong");
+    hargaError = intValidator.validate(hargaC.text , errorMessage: "Harga tidak valid");
+    if (isSewa) {
+      waktuPembayaranError = nullValidator.validate(
+          _waktuPembayaran ,
+          errorMessage: "Waktu pembayaran tidak boleh kosong"
+      );
+    }
+    alamatError = emptyValidator.validate(alamatC.text , errorMessage: "Alamat tidak boleh kosong");
+    provinsiError = nullValidator.validate(_provinsi , errorMessage: "Provinsi tidak boleh kosong");
+
+    if (_provinsi != null) {
+      kabupatenErorr = nullValidator.validate(_kabupaten , errorMessage: "Kabupaten tidak boleh kosong");
+    }
+    if (_kabupaten != null) {
+      kecamatanError = nullValidator.validate(_kecamatan , errorMessage: "Kecamatan tidak boleh kosong");
+    }
+    if (_kecamatan != null) {
+      kelurahanError = nullValidator.validate(_kelurahan , errorMessage: "Kelurahan tidak boleh kosong");
+    }
+
+    if (noError) {
+      Get.toNamed(NavRoute.form2SubmitPropertiRoute);
+    }
+
+    update();
+  }
+
+  bool get noError {
+    return judulError == null &&
+      tipePropertiError == null &&
+      hargaError == null &&
+      waktuPembayaranError == null &&
+      alamatError == null &&
+      provinsiError == null &&
+      kabupatenErorr == null &&
+      kecamatanError == null &&
+      kelurahanError == null;
+  }
   void clickBack() => Get.back();
+
+  String? judulError;
+  String? tipePropertiError;
+  String? hargaError;
+  String? waktuPembayaranError;
+  String? alamatError;
+  String? provinsiError;
+  String? kabupatenErorr;
+  String? kecamatanError;
+  String? kelurahanError;
 }
 
 class Form1Event {}

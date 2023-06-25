@@ -41,9 +41,9 @@ class FinishSubmitScreen extends StatelessWidget{
                       else{ throw Exception("Unknown error"); }
                     }
                     else{
-                      return Column(
+                      return const Column(
                         mainAxisSize: MainAxisSize.min,
-                        children: const [
+                        children: [
                           CircularProgressIndicator(),
                           Text(
                             "Sedang mengupload data...",

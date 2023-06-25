@@ -12,7 +12,7 @@ class KartuLuas extends StatelessWidget{
       width: double.infinity,
       decoration: BoxDecoration(
         border: Border.all(
-          color: Color(0x80000000),
+          color: const Color(0x80000000),
           width: 0.5
         ),
         borderRadius: BorderRadius.circular(12),
@@ -27,14 +27,14 @@ class KartuLuas extends StatelessWidget{
                 data: "Luash lahan : ${detailProperti.luasLahan}",
             ),
 
-            SizedBox(height: 16,),
+            const SizedBox(height: 16,),
 
             PropertiDataWithIcon(
                 icon: Icons.home_work_outlined,
                 data: "Luas bangunan : ${detailProperti.luasBangunan}",
             ),
 
-            SizedBox(height: 16,),
+            const SizedBox(height: 16,),
 
             PropertiDataWithIcon(
                 icon: Icons.electric_bolt_outlined,
