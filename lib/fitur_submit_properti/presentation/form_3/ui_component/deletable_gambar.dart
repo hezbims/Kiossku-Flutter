@@ -15,35 +15,46 @@ class DeletableGambar extends StatelessWidget{
 
   @override
   Widget build(BuildContext context){
-    return Stack(
-      children: [
-        ClipRRect(
-          borderRadius: BorderRadius.circular(12),
-          child: Image.file(
-              File(image.path),
-              height: 241,
-              fit: BoxFit.cover,
-          ),
+    return Container(
+      decoration: BoxDecoration(
+        border: Border.all(
+            color: Colors.black,
+            width: 0.5
         ),
+        borderRadius: BorderRadius.circular(12),
+      ),
+      child: Stack(
+        children: [
+          ClipRRect(
+            borderRadius: BorderRadius.circular(12),
+            child: Image.file(
+                File(image.path),
+                height: 241,
+                width: 270,
+                fit: BoxFit.cover,
+            ),
+          ),
 
-        Positioned.fill(
-          top: 16,
-          right: 16,
-          child: Align(
-            alignment: Alignment.topRight,
-            child: Container(
-              decoration: const BoxDecoration(
-                shape: BoxShape.circle,
-                color: Colors.grey
-              ),
-              child: IconButton(
-                  onPressed: onClickDelete,
-                  icon: const Icon(Icons.close)
+          Positioned.fill(
+            top: 8,
+            right: 8,
+            child: Align(
+              alignment: Alignment.topRight,
+              child: Container(
+                padding: EdgeInsets.all(4),
+                decoration: const BoxDecoration(
+                  shape: BoxShape.circle,
+                  color: Colors.grey
+                ),
+                child: InkWell(
+                    onTap: onClickDelete,
+                    child: const Icon(Icons.close , size: 12,)
+                ),
               ),
             ),
           ),
-        ),
-      ],
+        ],
+      ),
     );
   }
 }

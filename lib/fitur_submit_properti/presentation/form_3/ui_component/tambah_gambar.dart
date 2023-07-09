@@ -2,6 +2,7 @@ import 'package:dotted_border/dotted_border.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:kiossku_flutter/fitur_submit_properti/presentation/form_3/form_3_controller.dart';
+import 'package:kiossku_flutter/theme/kiossku_theme.dart';
 
 class TambahGambar extends StatelessWidget{
   const TambahGambar({super.key});
@@ -14,18 +15,40 @@ class TambahGambar extends StatelessWidget{
         return InkWell(
           onTap: controller.addNewImages,
           child: DottedBorder(
-              child: const Center(
-                child: SizedBox(
-                  height: 241,
-                  child: Column(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    mainAxisSize: MainAxisSize.max,
-                    crossAxisAlignment: CrossAxisAlignment.center,
-                    children: [
-                      Text("Tambah Gambar"),
-                      Icon(Icons.add)
-                    ],
-                  ),
+              dashPattern: [10 , 4],
+              strokeWidth: 0.5,
+              color: KiosskuColors.label,
+              borderType: BorderType.RRect,
+              radius: Radius.circular(12),
+              child: SizedBox(
+                width: 270,
+                height: 241,
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  mainAxisSize: MainAxisSize.max,
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  children: [
+                    Text(
+                        "Tambah Gambar",
+                      style: TextStyle(
+                        fontWeight: FontWeight.w500,
+                      ),
+                    ),
+
+                    const SizedBox(height: 8),
+
+                    Container(
+                        decoration: BoxDecoration(
+                          borderRadius: BorderRadius.all(
+                              Radius.circular(12)
+                          ),
+                          border: Border.all(
+                            color: KiosskuColors.primary
+                          )
+                        ),
+                        child: Icon(Icons.add)
+                    )
+                  ],
                 ),
               )
           ),
