@@ -7,7 +7,7 @@ import '../../../constant/custom_decoration.dart';
 class DaerahDropdown extends StatelessWidget{
 
   final String label;
-  final bool isVisible;
+  final bool isEnabled;
   final void Function(DaerahDto?) onChanged;
   final void Function() onReload;
   final Future<ApiResponse> response;
@@ -16,7 +16,7 @@ class DaerahDropdown extends StatelessWidget{
   const DaerahDropdown({
     super.key,
     required this.label,
-    required this.isVisible,
+    required this.isEnabled,
     required this.onChanged,
     required this.onReload,
     required this.response,
@@ -26,7 +26,13 @@ class DaerahDropdown extends StatelessWidget{
 
   @override
   Widget build(BuildContext context) {
-    if (isVisible) {
+    final inputDecoration = InputDecoration(
+        border: CustomDecorationProperty.formBorder,
+        label: Text(label),
+        errorText: errorMessage
+    );
+
+    if (isEnabled) {
       return FutureBuilder(
           future: response,
           builder: (context, snapshot) {
@@ -44,11 +50,7 @@ class DaerahDropdown extends StatelessWidget{
                       )
                   ).toList(),
                   onChanged: onChanged,
-                  decoration: InputDecoration(
-                      border: CustomDecorationProperty.formBorder,
-                      label: Text(label),
-                      errorText: errorMessage
-                  ),
+                  decoration: inputDecoration,
                 );
               }
               else if (data is ApiResponseFailed) {
@@ -80,7 +82,10 @@ class DaerahDropdown extends StatelessWidget{
       );
     }
     else {
-      return const SizedBox.shrink();
+      return TextField(
+        decoration: inputDecoration,
+        enabled: false,
+      );
     }
   }
 }

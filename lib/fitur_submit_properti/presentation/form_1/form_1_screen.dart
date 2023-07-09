@@ -91,7 +91,7 @@ class Form1Screen extends StatelessWidget{
                   DaerahDropdown(
                     label: "Provinsi",
                     errorMessage: controller.provinsiError,
-                    isVisible: controller.isProvinsiFormVisible,
+                    isEnabled: controller.isProvinsiFormVisible,
                     onChanged: (newValue){
                       controller.onEvent(
                           ChangeProvinsi(newValue: newValue)
@@ -102,10 +102,12 @@ class Form1Screen extends StatelessWidget{
                     currentValue: controller.provinsi,
                   ),
 
+                  const SizedBox(height: 24,),
+
                   DaerahDropdown(
                     label: "Kabupaten",
                     errorMessage: controller.kabupatenErorr,
-                    isVisible: controller.isKabupatenFormVisible,
+                    isEnabled: controller.isKabupatenFormVisible,
                     onChanged: (newValue){
                       controller.onEvent(
                           ChangeKabupaten(newValue: newValue)
@@ -116,10 +118,12 @@ class Form1Screen extends StatelessWidget{
                     currentValue: controller.kabupaten,
                   ),
 
+                  const SizedBox(height: 24,),
+
                   DaerahDropdown(
                     label: "Kecamatan",
                     errorMessage: controller.kecamatanError,
-                    isVisible: controller.isKecamatanFormVisible,
+                    isEnabled: controller.isKecamatanFormVisible,
                     onChanged: (newValue){
                       controller.onEvent(
                           ChangeKecamatan(newValue: newValue)
@@ -130,10 +134,12 @@ class Form1Screen extends StatelessWidget{
                     currentValue: controller.kecamatan,
                   ),
 
+                  const SizedBox(height: 24,),
+
                   DaerahDropdown(
                     label: "Kelurahan",
                     errorMessage: controller.kelurahanError,
-                    isVisible: controller.isKelurahanFormVisible,
+                    isEnabled: controller.isKelurahanFormVisible,
                     onChanged: (newValue){
                       controller.onEvent(
                           ChangeKelurahan(newValue: newValue)
