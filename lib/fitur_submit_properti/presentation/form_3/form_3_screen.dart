@@ -29,8 +29,8 @@ class Form3Screen extends StatelessWidget{
                             children : [
                               const SizedBox(height: 16,),
 
-                              Padding(
-                                padding: const EdgeInsets.symmetric(horizontal: 24),
+                              const Padding(
+                                padding: EdgeInsets.symmetric(horizontal: 24),
                                 child: FormHeader(
                                     formNumber: 3,
                                     title: "Form Dokumentasi Properti"
@@ -55,7 +55,7 @@ class Form3Screen extends StatelessWidget{
                                         ),
                                       )
                               ),
-                              SizedBox(height: 32,)
+                              const SizedBox(height: 32,)
                             ]
                         ),
                       ),

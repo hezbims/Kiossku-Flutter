@@ -1,3 +1,5 @@
+// ignore_for_file: prefer_const_literals_to_create_immutables
+
 import 'package:dotted_border/dotted_border.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -19,7 +21,7 @@ class TambahGambar extends StatelessWidget{
               strokeWidth: 0.5,
               color: KiosskuColors.label,
               borderType: BorderType.RRect,
-              radius: Radius.circular(12),
+              radius: const Radius.circular(12),
               child: SizedBox(
                 width: 270,
                 height: 241,
@@ -28,7 +30,7 @@ class TambahGambar extends StatelessWidget{
                   mainAxisSize: MainAxisSize.max,
                   crossAxisAlignment: CrossAxisAlignment.center,
                   children: [
-                    Text(
+                    const Text(
                         "Tambah Gambar",
                       style: TextStyle(
                         fontWeight: FontWeight.w500,
@@ -39,14 +41,14 @@ class TambahGambar extends StatelessWidget{
 
                     Container(
                         decoration: BoxDecoration(
-                          borderRadius: BorderRadius.all(
+                          borderRadius: const BorderRadius.all(
                               Radius.circular(12)
                           ),
                           border: Border.all(
                             color: KiosskuColors.primary
                           )
                         ),
-                        child: Icon(Icons.add)
+                        child: const Icon(Icons.add)
                     )
                   ],
                 ),

@@ -26,31 +26,38 @@ class FinishSubmitController extends GetxController{
   @override
   void onInit() {
     super.onInit();
-    apiResponse = _repository.submitProperti(
-      SubmitPropertiDto(
-          judulPromosi: _form1C.judulC.text,
-          tipeProperti: _form1C.tipeProperti.toString(),
-          harga: int.parse(_form1C.hargaC.text), 
-          waktuPembayaran: _form1C.waktuPembayaran.toString(), 
-          fixNego: _form1C.fixNego.toString(), 
-          sewaJual: _sewaJualC.sewaJual.toString(), 
-          provinsi: _form1C.provinsi!.name, 
-          kota: _form1C.kabupaten!.name, 
-          kecamatan: _form1C.kecamatan!.name, 
-          kelurahan: _form1C.kelurahan!.name, 
-          luasLahan: int.parse(_form2C.luasLahanC.text), 
-          luasBangunan: int.parse(_form2C.luasBangunanC.text), 
-          tingkat: int.parse(_form2C.jumlahLantaiC.text),
-          kapasitasListrik: int.parse(_form2C.kapasitasListrikC.text),
-          alamat: _form1C.alamatC.text,
-          fasilitas: _form2C.fasilitasC.text,
-          deskripsi: _form2C.deskripsiC.text,
-          panjang: int.parse(_form2C.panjangC.text),
-          lebar: int.parse(_form2C.panjangC.text),
-          images: _form3C.images
-      )
-    );
+    resubmit();
   }
+
+  void resubmit(){
+    apiResponse = _submitResponse;
+  }
+
+  Future<ApiResponse> get _submitResponse =>
+      _repository.submitProperti(
+          SubmitPropertiDto(
+              judulPromosi: _form1C.judulC.text,
+              tipeProperti: _form1C.tipeProperti.toString(),
+              harga: int.parse(_form1C.hargaC.text),
+              waktuPembayaran: _form1C.waktuPembayaran.toString(),
+              fixNego: _form1C.fixNego.toString(),
+              sewaJual: _sewaJualC.sewaJual.toString(),
+              provinsi: _form1C.provinsi!.name,
+              kota: _form1C.kabupaten!.name,
+              kecamatan: _form1C.kecamatan!.name,
+              kelurahan: _form1C.kelurahan!.name,
+              luasLahan: int.parse(_form2C.luasLahanC.text),
+              luasBangunan: int.parse(_form2C.luasBangunanC.text),
+              tingkat: int.parse(_form2C.jumlahLantaiC.text),
+              kapasitasListrik: int.parse(_form2C.kapasitasListrikC.text),
+              alamat: _form1C.alamatC.text,
+              fasilitas: _form2C.fasilitasC.text,
+              deskripsi: _form2C.deskripsiC.text,
+              panjang: int.parse(_form2C.panjangC.text),
+              lebar: int.parse(_form2C.panjangC.text),
+              images: _form3C.images
+          )
+      );
 
   void onClickFinish() => Get.offNamedUntil(
       NavRoute.submitPropertiRoute,

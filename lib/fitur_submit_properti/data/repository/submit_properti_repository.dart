@@ -1,4 +1,5 @@
 import 'package:get/get.dart';
+import 'package:kiossku_flutter/common/constant/string_resource.dart';
 import 'package:kiossku_flutter/common/response.dart';
 import 'package:kiossku_flutter/fitur_submit_properti/data/api_client/submit_properti_api_client.dart';
 import 'package:kiossku_flutter/fitur_submit_properti/data/dto/submit_properti_dto.dart';
@@ -16,14 +17,14 @@ class SubmitPropertiRepository implements ISubmitPropertiRepository{
           return ApiResponseSuccess();
         } else {
           return ApiResponseFailed(
-            errorMessage: response.bodyString,
+            errorMessage: response.bodyString ?? StringResource.failedToConnectMessage,
             errorCode: response.statusCode
           );
         }
       }
     ).catchError((e){
       return ApiResponseFailed(
-        errorMessage: "Gagal tersambung ke server"
+        errorMessage: e?.toString() ?? "Unknown Error"
       );
     });
   }
