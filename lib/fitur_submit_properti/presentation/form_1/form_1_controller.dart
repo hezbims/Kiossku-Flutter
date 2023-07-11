@@ -5,6 +5,7 @@ import 'package:kiossku_flutter/fitur_submit_properti/constant/enum/fix_nego_enu
 import 'package:kiossku_flutter/fitur_submit_properti/constant/enum/sewa_jual_enum.dart';
 import 'package:kiossku_flutter/fitur_submit_properti/constant/enum/tipe_properti_enum.dart';
 import 'package:kiossku_flutter/fitur_submit_properti/constant/enum/waktu_pembayaran_enum.dart';
+import 'package:kiossku_flutter/fitur_submit_properti/constant/string/string_resource.dart';
 import 'package:kiossku_flutter/fitur_submit_properti/data/dto/daerah_dto.dart';
 import 'package:kiossku_flutter/fitur_submit_properti/domain/repository/i_daerah_repository.dart';
 import 'package:kiossku_flutter/fitur_submit_properti/domain/use_case/impl/empty_validation_use_case.dart';
@@ -67,107 +68,100 @@ class Form1Controller extends GetxController{
 
   final alamatC = TextEditingController();
 
-  void onEvent(Form1Event event){
-    if (event is ChangeFixNego){
-      if (event.newValue != null) {
-        _fixNego = event.newValue;
-        update();
-      }
+  void changeFixNego(FixNego? newValue){
+    if (newValue != null){
+      _fixNego = newValue;
+      update();
     }
-    else if (event is ChangeTipeProperti){
-      if (event.newValue != null){
-        _tipeProperti = event.newValue;
-        update();
-      }
-    }
-    else if (event is ChangeWaktuPembayaran){
-      if (event.newValue != null){
-        _waktuPembayaran = event.newValue;
-        update();
-      }
-    }
-    else if (event is ChangeProvinsi){
-      if (event.newValue != null && event.newValue!.id != _provinsi?.id){
-        _provinsi = event.newValue;
-        _kabupaten = null;
-        _kecamatan = null;
-        _kelurahan = null;
-        _reloadKabupaten();
-      }
-    }
-    else if (event is ChangeKabupaten){
-      if (event.newValue != null && event.newValue!.id != _kabupaten?.id){
-        _kabupaten = event.newValue;
-        _kecamatan = null;
-        _kelurahan = null;
-        _reloadKecamatan();
-      }
-    }
-    else if (event is ChangeKecamatan){
-      if (event.newValue != null && event.newValue!.id != _kecamatan?.id){
-        _kecamatan = event.newValue;
-        _kelurahan = null;
-        _reloadKelurahan();
-      }
-    }
-    else if (event is ChangeKelurahan){
-      if (event.newValue != null && event.newValue!.id != _kelurahan?.id){
-        _kelurahan = event.newValue;
-      }
-    }
-    else if (event is ReloadProvinsi){ _reloadProvinsi(); }
-    else if (event is ReloadKabupaten){ _reloadKabupaten(); }
-    else if (event is ReloadKecamatan){ _reloadKecamatan(); }
-    else if (event is ReloadKelurahan){ _reloadKelurahan(); }
   }
 
-  void _reloadProvinsi() {
+  void changeTipeProperti(TipeProperti? newValue){
+    if (newValue != null){
+      _tipeProperti = newValue;
+      update();
+    }
+  }
+
+  void changeWaktuPembayaran(WaktuPembayaran? newValue){
+    if (newValue != null){
+      _waktuPembayaran = newValue;
+      update();
+    }
+  }
+
+  void changeProvinsi(DaerahDto? newValue){
+    if (newValue != null && newValue.id != _provinsi?.id){
+      _provinsi = newValue;
+      _kabupaten = null;
+      _kecamatan = null;
+      _kelurahan = null;
+      reloadKabupaten();
+    }
+  }
+
+  void changeKabupaten(DaerahDto? newValue){
+    if (newValue != null && newValue.id != _kabupaten?.id){
+      _kabupaten = newValue;
+      _kecamatan = null;
+      _kelurahan = null;
+      reloadKecamatan();
+    }
+  }
+
+  void changeKecamatan(DaerahDto? newValue){
+    if (newValue != null && newValue.id != _kecamatan?.id){
+      _kecamatan = newValue;
+      _kelurahan = null;
+      reloadKelurahan();
+    }
+  }
+
+  void changeKelurahan(DaerahDto? newValue){
+    if (newValue != null && newValue.id != _kelurahan?.id){
+      _kelurahan = newValue;
+    }
+  }
+
+  void reloadProvinsi() {
     _listProvinsi = daerahRepository.getProvinsi();
     update();
   }
-  void _reloadKabupaten() {
+  void reloadKabupaten() {
     _listKabupaten = daerahRepository.getKabupaten(_provinsi!.id);
     update();
   }
-  void _reloadKecamatan() {
+  void reloadKecamatan() {
     _listKecamatan = daerahRepository.getKecamatan(_kabupaten!.id);
     update();
   }
-  void _reloadKelurahan() {
+  void reloadKelurahan() {
     _listKelurahan = daerahRepository.getKelurahan(_kecamatan!.id);
     update();
   }
 
-  bool isProvinsiFormVisible = true;
-  bool get isKabupatenFormVisible => _provinsi != null;
-  bool get isKecamatanFormVisible => _kabupaten != null;
-  bool get isKelurahanFormVisible => _kecamatan != null;
+  bool isProvinsiFormEnabled = true;
+  bool get isKabupatenFormEnabled => _provinsi != null;
+  bool get isKecamatanFormEnabled => _kabupaten != null;
+  bool get isKelurahanFormEnabled => _kecamatan != null;
 
   bool get isSewa =>
     Get.find<SewaJualController>().sewaJual == SewaJual.sewa;
 
   void clickNext() {
-    judulError = emptyValidator.validate(judulC.text , errorMessage: "Judul tidak boleh kosong");
-    tipePropertiError = nullValidator.validate(_tipeProperti , errorMessage: "Tipe properti tidak boleh kosong");
-    hargaError = intValidator.validate(hargaC.text , errorMessage: "Harga tidak valid");
+    judulError = emptyValidator.validate(judulC.text , errorMessage: StringResource.judulPromosiErrorMessage);
+    tipePropertiError = nullValidator.validate(_tipeProperti , errorMessage: StringResource.tipePropertiErrorMessage);
+    hargaError = intValidator.validate(hargaC.text , errorMessage: StringResource.hargaErrorMessage);
     if (isSewa) {
       waktuPembayaranError = nullValidator.validate(
           _waktuPembayaran ,
-          errorMessage: "Waktu pembayaran tidak boleh kosong"
+          errorMessage: StringResource.waktuPembayaranErrorMessage
       );
     }
-    alamatError = emptyValidator.validate(alamatC.text , errorMessage: "Alamat tidak boleh kosong");
-    provinsiError = nullValidator.validate(_provinsi , errorMessage: "Provinsi tidak boleh kosong");
-
-    if (_provinsi != null) {
-      kabupatenErorr = nullValidator.validate(_kabupaten , errorMessage: "Kabupaten tidak boleh kosong");
-    }
-    if (_kabupaten != null) {
-      kecamatanError = nullValidator.validate(_kecamatan , errorMessage: "Kecamatan tidak boleh kosong");
-    }
-    if (_kecamatan != null) {
-      kelurahanError = nullValidator.validate(_kelurahan , errorMessage: "Kelurahan tidak boleh kosong");
-    }
+    alamatError = emptyValidator.validate(alamatC.text , errorMessage: StringResource.alamatErrorMessage);
+    provinsiError = nullValidator.validate(_provinsi , errorMessage: StringResource.provinsiErrorMessage);
+    kabupatenErorr = nullValidator.validate(_kabupaten , errorMessage: StringResource.kabupatenErrorMessage);
+    kecamatanError = nullValidator.validate(_kecamatan , errorMessage: StringResource.kecamatanErrorMessage);
+    kelurahanError = nullValidator.validate(_kelurahan , errorMessage: StringResource.kelurahanErrorMessage);
 
     if (noError) {
       Get.toNamed(NavRoute.form2SubmitPropertiRoute);
@@ -199,45 +193,3 @@ class Form1Controller extends GetxController{
   String? kecamatanError;
   String? kelurahanError;
 }
-
-class Form1Event {}
-
-class ChangeFixNego extends Form1Event{
-  FixNego? newValue;
-  ChangeFixNego({required this.newValue});
-}
-
-class ChangeTipeProperti extends Form1Event{
-  TipeProperti? newValue;
-  ChangeTipeProperti({required this.newValue});
-}
-
-class ChangeWaktuPembayaran extends Form1Event{
-  WaktuPembayaran? newValue;
-  ChangeWaktuPembayaran({required this.newValue});
-}
-
-class ChangeProvinsi extends Form1Event {
-  DaerahDto? newValue;
-  ChangeProvinsi({required this.newValue});
-}
-
-class ChangeKabupaten extends Form1Event {
-  DaerahDto? newValue;
-  ChangeKabupaten({required this.newValue});
-}
-
-class ChangeKecamatan extends Form1Event {
-  DaerahDto? newValue;
-  ChangeKecamatan({required this.newValue});
-}
-
-class ChangeKelurahan extends Form1Event {
-  DaerahDto? newValue;
-  ChangeKelurahan({required this.newValue});
-}
-
-class ReloadProvinsi extends Form1Event{}
-class ReloadKabupaten extends Form1Event{}
-class ReloadKecamatan extends Form1Event{}
-class ReloadKelurahan extends Form1Event{}

@@ -45,11 +45,7 @@ class Form1Screen extends StatelessWidget{
                       selectedItem: controller.tipeProperti,
                       label: "Tipe properti",
                       errorMessage: controller.tipePropertiError,
-                      onChanged: (newValue){
-                        controller.onEvent(
-                            ChangeTipeProperti(newValue: newValue)
-                        );
-                      },
+                      onChanged: controller.changeTipeProperti,
                       items: TipeProperti.values
                   ),
 
@@ -71,11 +67,7 @@ class Form1Screen extends StatelessWidget{
                           selectedItem: controller.waktuPembayaran,
                           label: "Waktu pembayaran",
                           errorMessage: controller.waktuPembayaranError,
-                          onChanged: (newValue){
-                            controller.onEvent(
-                                ChangeWaktuPembayaran(newValue: newValue)
-                            );
-                          },
+                          onChanged: controller.changeWaktuPembayaran,
                           items: WaktuPembayaran.values
                       ),
                     ),
@@ -91,13 +83,9 @@ class Form1Screen extends StatelessWidget{
                   DaerahDropdown(
                     label: "Provinsi",
                     errorMessage: controller.provinsiError,
-                    isEnabled: controller.isProvinsiFormVisible,
-                    onChanged: (newValue){
-                      controller.onEvent(
-                          ChangeProvinsi(newValue: newValue)
-                      );
-                    },
-                    onReload: () => controller.onEvent(ReloadProvinsi()),
+                    isEnabled: controller.isProvinsiFormEnabled,
+                    onChanged: controller.changeProvinsi,
+                    onReload: controller.reloadProvinsi,
                     response: controller.listProvinsi,
                     currentValue: controller.provinsi,
                   ),
@@ -107,13 +95,9 @@ class Form1Screen extends StatelessWidget{
                   DaerahDropdown(
                     label: "Kabupaten",
                     errorMessage: controller.kabupatenErorr,
-                    isEnabled: controller.isKabupatenFormVisible,
-                    onChanged: (newValue){
-                      controller.onEvent(
-                          ChangeKabupaten(newValue: newValue)
-                      );
-                    },
-                    onReload: () => controller.onEvent(ReloadKabupaten()),
+                    isEnabled: controller.isKabupatenFormEnabled,
+                    onChanged: controller.changeKabupaten,
+                    onReload: controller.reloadKabupaten,
                     response: controller.listKabupaten,
                     currentValue: controller.kabupaten,
                   ),
@@ -123,13 +107,9 @@ class Form1Screen extends StatelessWidget{
                   DaerahDropdown(
                     label: "Kecamatan",
                     errorMessage: controller.kecamatanError,
-                    isEnabled: controller.isKecamatanFormVisible,
-                    onChanged: (newValue){
-                      controller.onEvent(
-                          ChangeKecamatan(newValue: newValue)
-                      );
-                    },
-                    onReload: () => controller.onEvent(ReloadKecamatan()),
+                    isEnabled: controller.isKecamatanFormEnabled,
+                    onChanged: controller.changeKecamatan,
+                    onReload: controller.reloadKecamatan,
                     response: controller.listKecamatan,
                     currentValue: controller.kecamatan,
                   ),
@@ -139,13 +119,9 @@ class Form1Screen extends StatelessWidget{
                   DaerahDropdown(
                     label: "Kelurahan",
                     errorMessage: controller.kelurahanError,
-                    isEnabled: controller.isKelurahanFormVisible,
-                    onChanged: (newValue){
-                      controller.onEvent(
-                          ChangeKelurahan(newValue: newValue)
-                      );
-                    },
-                    onReload: () => controller.onEvent(ReloadKelurahan()),
+                    isEnabled: controller.isKelurahanFormEnabled,
+                    onChanged: controller.changeKelurahan,
+                    onReload: controller.reloadKelurahan,
                     response: controller.listKelurahan,
                     currentValue: controller.kelurahan,
                   ),
