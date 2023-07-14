@@ -1,5 +1,5 @@
+import 'package:common/utils/rupiah_formatter.dart';
 import 'package:flutter/material.dart';
-import 'package:kiossku_flutter/common/utils/rupiah_formatter.dart';
 import 'package:kiossku_flutter/fitur_detail_properti/domain/model/detail_properti.dart';
 import 'package:kiossku_flutter/fitur_detail_properti/presentation/ui_component/detail_properti_data/kartu_luas.dart';
 import 'package:kiossku_flutter/fitur_detail_properti/presentation/ui_component/detail_properti_data/properti_data_with_icon.dart';

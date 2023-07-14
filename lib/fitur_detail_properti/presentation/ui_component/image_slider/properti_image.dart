@@ -1,6 +1,6 @@
 import 'package:cached_network_image/cached_network_image.dart';
+import 'package:dependencies/getx/getx.dart';
 import 'package:flutter/material.dart';
-import 'package:get/get_state_manager/get_state_manager.dart';
 import 'package:kiossku_flutter/fitur_detail_properti/presentation/detail_properti_controller.dart';
 
 class PropertiImage extends StatelessWidget{

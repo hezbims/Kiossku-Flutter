@@ -1,18 +1,18 @@
+import 'package:common/constant/string_resource.dart';
+import 'package:common/navigation/nav_route.dart';
+import 'package:common/response.dart';
+import 'package:dependencies/getx/getx.dart';
 import 'package:flutter/cupertino.dart';
-import 'package:get/get.dart';
-import 'package:kiossku_flutter/common/response.dart';
 import 'package:kiossku_flutter/fitur_submit_properti/constant/enum/fix_nego_enum.dart';
 import 'package:kiossku_flutter/fitur_submit_properti/constant/enum/sewa_jual_enum.dart';
 import 'package:kiossku_flutter/fitur_submit_properti/constant/enum/tipe_properti_enum.dart';
 import 'package:kiossku_flutter/fitur_submit_properti/constant/enum/waktu_pembayaran_enum.dart';
-import 'package:kiossku_flutter/fitur_submit_properti/constant/string/string_resource.dart';
 import 'package:kiossku_flutter/fitur_submit_properti/data/dto/daerah_dto.dart';
 import 'package:kiossku_flutter/fitur_submit_properti/domain/repository/i_daerah_repository.dart';
 import 'package:kiossku_flutter/fitur_submit_properti/domain/use_case/impl/empty_validation_use_case.dart';
 import 'package:kiossku_flutter/fitur_submit_properti/domain/use_case/impl/int_validation_use_case.dart';
 import 'package:kiossku_flutter/fitur_submit_properti/domain/use_case/impl/null_validation_use_case.dart';
 import 'package:kiossku_flutter/fitur_submit_properti/presentation/sewa_jual/sewa_jual_controller.dart';
-import 'package:kiossku_flutter/navigation/nav_route.dart';
 
 
 class Form1Controller extends GetxController{

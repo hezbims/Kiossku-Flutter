@@ -1,5 +1,5 @@
+import 'package:dependencies/getx/getx.dart';
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
 import 'package:kiossku_flutter/fitur_submit_properti/constant/enum/tipe_properti_enum.dart';
 import 'package:kiossku_flutter/fitur_submit_properti/constant/enum/waktu_pembayaran_enum.dart';
 import 'package:kiossku_flutter/fitur_submit_properti/presentation/form_1/form_1_controller.dart';

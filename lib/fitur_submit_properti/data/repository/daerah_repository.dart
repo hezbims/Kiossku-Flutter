@@ -1,7 +1,5 @@
-
-
-import 'package:get/get_connect/http/src/response/response.dart';
-import 'package:kiossku_flutter/common/response.dart';
+import 'package:common/response.dart';
+import 'package:dependencies/getx/getx.dart';
 import 'package:kiossku_flutter/fitur_submit_properti/data/api_client/daerah_api_client.dart';
 import 'package:kiossku_flutter/fitur_submit_properti/data/dto/daerah_dto.dart';
 import 'package:kiossku_flutter/fitur_submit_properti/domain/repository/i_daerah_repository.dart';

@@ -1,4 +1,4 @@
-import 'package:get/get.dart';
+import 'package:dependencies/getx/getx.dart';
 import 'package:kiossku_flutter/fitur_submit_properti/data/repository/daerah_repository.dart';
 import 'package:kiossku_flutter/fitur_submit_properti/domain/use_case/impl/empty_validation_use_case.dart';
 import 'package:kiossku_flutter/fitur_submit_properti/domain/use_case/impl/int_validation_use_case.dart';

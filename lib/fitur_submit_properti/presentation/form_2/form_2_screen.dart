@@ -1,5 +1,5 @@
+import 'package:dependencies/getx/getx.dart';
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
 import 'package:kiossku_flutter/fitur_submit_properti/presentation/form_1/ui_component/submit_properti_text_field.dart';
 import 'package:kiossku_flutter/fitur_submit_properti/presentation/form_2/form_2_controller.dart';
 import 'package:kiossku_flutter/fitur_submit_properti/presentation/ui_component/back_next_button.dart';

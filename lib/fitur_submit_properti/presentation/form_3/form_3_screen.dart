@@ -1,6 +1,5 @@
-
+import 'package:dependencies/getx/getx.dart';
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
 import 'package:kiossku_flutter/fitur_submit_properti/presentation/form_3/form_3_controller.dart';
 import 'package:kiossku_flutter/fitur_submit_properti/presentation/form_3/ui_component/deletable_gambar.dart';
 import 'package:kiossku_flutter/fitur_submit_properti/presentation/form_3/ui_component/tambah_gambar.dart';

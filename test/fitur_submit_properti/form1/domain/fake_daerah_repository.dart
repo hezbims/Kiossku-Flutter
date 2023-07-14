@@ -1,4 +1,4 @@
-import 'package:kiossku_flutter/common/response.dart';
+import 'package:common/response.dart';
 import 'package:kiossku_flutter/fitur_submit_properti/data/dto/daerah_dto.dart';
 import 'package:kiossku_flutter/fitur_submit_properti/domain/repository/i_daerah_repository.dart';
 

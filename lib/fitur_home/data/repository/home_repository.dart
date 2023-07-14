@@ -1,5 +1,5 @@
-import 'package:kiossku_flutter/common/constant/string_resource.dart';
-import 'package:kiossku_flutter/common/response.dart';
+import 'package:common/constant/string_resource.dart';
+import 'package:common/response.dart';
 import 'package:kiossku_flutter/fitur_home/data/api_client/home_api_client.dart';
 import 'package:kiossku_flutter/fitur_home/domain/model/filter_data.dart';
 import 'package:kiossku_flutter/fitur_home/domain/model/properti_preview.dart';

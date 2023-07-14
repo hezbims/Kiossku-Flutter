@@ -1,11 +1,10 @@
+import 'package:common/domain/use_case/interface/i_load_image_use_case.dart';
+import 'package:common/navigation/nav_route.dart';
+import 'package:common/response.dart';
+import 'package:dependencies/getx/getx.dart';
 import 'package:flutter/cupertino.dart';
-import 'package:get/get.dart';
 import 'package:kiossku_flutter/fitur_home/domain/model/filter_data.dart';
 import 'package:kiossku_flutter/fitur_home/domain/repository/ihome_repository.dart';
-import 'package:kiossku_flutter/navigation/nav_route.dart';
-
-import '../../common/domain/use_case/interface/i_load_image_use_case.dart';
-import '../../common/response.dart';
 
 class HomeController extends GetxController{
   final IHomeRepository _repository;

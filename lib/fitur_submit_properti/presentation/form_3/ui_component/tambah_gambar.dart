@@ -1,8 +1,8 @@
 // ignore_for_file: prefer_const_literals_to_create_immutables
 
+import 'package:dependencies/getx/getx.dart';
 import 'package:dotted_border/dotted_border.dart';
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
 import 'package:kiossku_flutter/fitur_submit_properti/presentation/form_3/form_3_controller.dart';
 import 'package:kiossku_flutter/theme/kiossku_theme.dart';
 

@@ -1,6 +1,6 @@
+import 'package:common/response.dart';
+import 'package:dependencies/getx/getx.dart';
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
-import 'package:kiossku_flutter/common/response.dart';
 import 'package:kiossku_flutter/fitur_detail_properti/domain/model/detail_properti.dart';
 import 'package:kiossku_flutter/fitur_detail_properti/presentation/detail_properti_controller.dart';
 import 'package:kiossku_flutter/fitur_detail_properti/presentation/ui_component/detail_properti_app_bar/detail_properti_app_bar.dart';

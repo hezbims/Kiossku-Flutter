@@ -1,6 +1,6 @@
-import 'package:get/get.dart';
-import 'package:kiossku_flutter/common/constant/string_resource.dart';
-import 'package:kiossku_flutter/common/response.dart';
+import 'package:common/constant/string_resource.dart';
+import 'package:common/response.dart';
+import 'package:dependencies/getx/getx.dart';
 import 'package:kiossku_flutter/fitur_submit_properti/data/api_client/submit_properti_api_client.dart';
 import 'package:kiossku_flutter/fitur_submit_properti/data/dto/submit_properti_dto.dart';
 import 'package:kiossku_flutter/fitur_submit_properti/domain/repository/i_submit_properti_repository.dart';

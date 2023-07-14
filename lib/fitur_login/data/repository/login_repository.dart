@@ -1,4 +1,4 @@
-import 'package:kiossku_flutter/common/response.dart';
+import 'package:common/response.dart';
 import 'package:kiossku_flutter/fitur_login/data/api_client/login_api_client.dart';
 import 'package:kiossku_flutter/fitur_login/domain/repository/ilogin_repository.dart';
 

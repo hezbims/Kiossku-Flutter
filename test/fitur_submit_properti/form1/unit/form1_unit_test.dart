@@ -1,10 +1,10 @@
+import 'package:common/constant/string_resource.dart';
+import 'package:dependencies/getx/getx.dart';
 import 'package:flutter_test/flutter_test.dart';
-import 'package:get/get.dart';
 import 'package:kiossku_flutter/fitur_submit_properti/constant/enum/fix_nego_enum.dart';
 import 'package:kiossku_flutter/fitur_submit_properti/constant/enum/sewa_jual_enum.dart';
 import 'package:kiossku_flutter/fitur_submit_properti/constant/enum/tipe_properti_enum.dart';
 import 'package:kiossku_flutter/fitur_submit_properti/constant/enum/waktu_pembayaran_enum.dart';
-import 'package:kiossku_flutter/fitur_submit_properti/constant/string/string_resource.dart';
 import 'package:kiossku_flutter/fitur_submit_properti/data/dto/daerah_dto.dart';
 import 'package:kiossku_flutter/fitur_submit_properti/domain/use_case/impl/empty_validation_use_case.dart';
 import 'package:kiossku_flutter/fitur_submit_properti/domain/use_case/impl/int_validation_use_case.dart';

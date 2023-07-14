@@ -1,5 +1,5 @@
+import 'package:dependencies/getx/getx.dart';
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
 import 'package:kiossku_flutter/fitur_login/presentation/login_controller.dart';
 
 class LoginPage extends StatelessWidget{

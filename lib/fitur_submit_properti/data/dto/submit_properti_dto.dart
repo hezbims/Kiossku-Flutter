@@ -1,6 +1,6 @@
 import 'dart:io';
 
-import 'package:get/get_connect/connect.dart';
+import 'package:dependencies/getx/getx.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:collection/collection.dart';
 

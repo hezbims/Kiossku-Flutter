@@ -1,7 +1,7 @@
 import 'package:cached_network_image/cached_network_image.dart';
+import 'package:common/utils/rupiah_formatter.dart';
+import 'package:dependencies/getx/getx.dart';
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
-import 'package:kiossku_flutter/common/utils/rupiah_formatter.dart';
 import 'package:kiossku_flutter/fitur_home/domain/model/properti_preview.dart';
 import 'package:kiossku_flutter/fitur_home/presentation/home_controller.dart';
 import 'package:kiossku_flutter/theme/kiossku_theme.dart';

@@ -1,6 +1,7 @@
+import 'package:common/di/initial_bindings.dart';
+import 'package:common/navigation/nav_route.dart';
+import 'package:dependencies/getx/getx.dart';
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
-import 'package:kiossku_flutter/common/di/initial_bindings.dart';
 import 'package:kiossku_flutter/fitur_detail_properti/di/detail_properti_bindings.dart';
 import 'package:kiossku_flutter/fitur_detail_properti/presentation/detail_properti_screen.dart';
 import 'package:kiossku_flutter/fitur_home/di/home_bindings.dart';
@@ -12,7 +13,6 @@ import 'package:kiossku_flutter/fitur_submit_properti/presentation/finish_submit
 import 'package:kiossku_flutter/fitur_submit_properti/presentation/form_1/form_1_screen.dart';
 import 'package:kiossku_flutter/fitur_submit_properti/presentation/form_2/form_2_screen.dart';
 import 'package:kiossku_flutter/fitur_submit_properti/presentation/sewa_jual/sewa_jual_screen.dart';
-import 'package:kiossku_flutter/navigation/nav_route.dart';
 import 'package:kiossku_flutter/theme/kiossku_theme.dart';
 
 import 'fitur_home/presentation/home_screen.dart';

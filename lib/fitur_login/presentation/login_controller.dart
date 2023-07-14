@@ -1,9 +1,9 @@
+import 'package:common/navigation/nav_route.dart';
+import 'package:common/response.dart';
+import 'package:dependencies/getx/getx.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:fluttertoast/fluttertoast.dart';
-import 'package:get/get.dart';
-import 'package:kiossku_flutter/common/response.dart';
 import 'package:kiossku_flutter/fitur_login/domain/repository/ilogin_repository.dart';
-import 'package:kiossku_flutter/navigation/nav_route.dart';
 
 class LoginController extends GetxController{
   final ILoginRepository repository;
@@ -52,5 +52,5 @@ class LoginController extends GetxController{
 
 class LoginPageUIState {
   bool isPasswordVisible = false;
-  ApiResponse loginApiResponse = ApiResponseFailed();
+  ApiResponse? loginApiResponse;
 }

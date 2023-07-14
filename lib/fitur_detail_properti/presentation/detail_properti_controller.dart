@@ -1,8 +1,7 @@
-import 'package:get/get.dart';
-import 'package:kiossku_flutter/common/domain/use_case/interface/i_load_image_use_case.dart';
+import 'package:common/domain/use_case/interface/i_load_image_use_case.dart';
+import 'package:common/response.dart';
+import 'package:dependencies/getx/getx.dart';
 import 'package:kiossku_flutter/fitur_detail_properti/domain/repository/i_detail_properti_repository.dart';
-
-import '../../common/response.dart';
 
 class DetailPropertiController extends GetxController{
   final ILoadImageUseCase _loadImageUseCase;

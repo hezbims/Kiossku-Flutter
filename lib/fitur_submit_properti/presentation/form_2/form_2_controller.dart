@@ -1,8 +1,8 @@
+import 'package:common/navigation/nav_route.dart';
+import 'package:dependencies/getx/getx.dart';
 import 'package:flutter/cupertino.dart';
-import 'package:get/get.dart';
 import 'package:kiossku_flutter/fitur_submit_properti/domain/use_case/impl/empty_validation_use_case.dart';
 import 'package:kiossku_flutter/fitur_submit_properti/domain/use_case/impl/int_validation_use_case.dart';
-import 'package:kiossku_flutter/navigation/nav_route.dart';
 
 class Form2Controller extends GetxController{
   final EmptyValidationUseCase emptyValidator;

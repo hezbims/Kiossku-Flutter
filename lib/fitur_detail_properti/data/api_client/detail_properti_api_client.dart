@@ -1,5 +1,5 @@
-import 'package:get/get.dart';
-import 'package:kiossku_flutter/common/constant/url/common_api_url.dart';
+import 'package:common/constant/url/common_api_url.dart';
+import 'package:dependencies/getx/getx.dart';
 
 class DetailPropertiApiClient extends GetConnect{
   String _getDetailPropertiUrl(int id) {

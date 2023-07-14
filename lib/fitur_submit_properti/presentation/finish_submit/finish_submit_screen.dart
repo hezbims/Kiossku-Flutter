@@ -1,9 +1,9 @@
 // ignore_for_file: prefer_const_constructors
 
+import 'package:common/constant/url/assets_url.dart';
+import 'package:common/response.dart';
+import 'package:dependencies/getx/getx.dart';
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
-import 'package:kiossku_flutter/common/constant/url/assets_url.dart';
-import 'package:kiossku_flutter/common/response.dart';
 import 'package:kiossku_flutter/fitur_submit_properti/presentation/finish_submit/finish_submit_controller.dart';
 import 'package:kiossku_flutter/theme/kiossku_theme.dart';
 

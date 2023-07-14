@@ -1,5 +1,5 @@
+import 'package:common/response.dart';
 import 'package:flutter/material.dart';
-import 'package:kiossku_flutter/common/response.dart';
 import 'package:kiossku_flutter/fitur_submit_properti/data/dto/daerah_dto.dart';
 
 import '../../../constant/custom_decoration.dart';

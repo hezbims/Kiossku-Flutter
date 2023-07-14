@@ -1,4 +1,4 @@
-import 'package:get/get.dart';
+import 'package:dependencies/getx/getx.dart';
 import 'package:kiossku_flutter/fitur_submit_properti/constant/api_url/daerah_url.dart';
 
 class DaerahApiClient extends GetConnect{

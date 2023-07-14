@@ -1,4 +1,4 @@
-import 'package:kiossku_flutter/common/response.dart';
+import 'package:common/response.dart';
 
 abstract class ILoginRepository {
   Future<ApiResponse> submitData({

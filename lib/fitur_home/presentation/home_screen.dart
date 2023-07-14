@@ -1,11 +1,11 @@
+import 'package:common/navigation/bottom_nav_bar_index.dart';
+import 'package:common/presentation/kiossku_bottom_nav_bar.dart';
+import 'package:common/response.dart';
+import 'package:dependencies/getx/getx.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_staggered_grid_view/flutter_staggered_grid_view.dart';
-import 'package:get/get.dart';
-import 'package:kiossku_flutter/common/presentation/kiossku_bottom_nav_bar.dart';
-import 'package:kiossku_flutter/common/response.dart';
 import 'package:kiossku_flutter/fitur_home/presentation/home_controller.dart';
 import 'package:kiossku_flutter/fitur_home/presentation/ui_component/item_properti.dart';
-import 'package:kiossku_flutter/navigation/bottom_nav_bar_index.dart';
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key});

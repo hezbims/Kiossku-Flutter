@@ -1,7 +1,7 @@
+import 'package:common/navigation/nav_route.dart';
+import 'package:dependencies/getx/getx.dart';
 import 'package:fluttertoast/fluttertoast.dart';
-import 'package:get/get.dart';
 import 'package:image_picker/image_picker.dart';
-import 'package:kiossku_flutter/navigation/nav_route.dart';
 
 class Form3Controller extends GetxController{
   final _imagePicker = ImagePicker();
